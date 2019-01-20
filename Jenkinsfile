@@ -11,4 +11,12 @@ node {
     def mvn_cmd = "${maven_home}/bin/mvn"
     "${mvn_cmd} mvn clean package"
     }
-    }
+   
+    stage('email notification')
+    {
+        
+        mail bcc: '', body: 'Hello', cc: '', from: '', replyTo: '', subject: 'job from jenkins', to: 'nitinarorayv@gmail.com'
+    
+     }
+      }
+    
