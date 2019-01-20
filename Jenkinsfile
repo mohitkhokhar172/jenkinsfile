@@ -17,5 +17,12 @@ node {
         mail bcc: '', body: 'Hello', cc: '', from: 'nitinarorayv@gmail.com', replyTo: '', subject: 'job from jenkins', to: 'nitinarorayv@gmail.com'
     
      }
+    
+    stage('SonarQube Analysis') {
+        def mvnHome =  tool name: 'MAVEN_HOME', type: 'maven'
+        withSonarQubeEnv('sonar-6') { 
+          "${mvnHome}/bin/mvn sonar:sonar"
+        }
+    }
       }
     
