@@ -14,8 +14,7 @@ node {
    
     stage('email notification')
     {
-        
-        mail bcc: '', body: 'Hello', cc: '', from: '', replyTo: '', subject: 'job from jenkins', to: 'nitinarorayv@gmail.com'
+        mail bcc: '', body: 'Hello', cc: '', from: 'nitinarorayv@gmail.com', replyTo: '', subject: 'job from jenkins', to: 'nitinarorayv@gmail.com'
     
      }
       }
