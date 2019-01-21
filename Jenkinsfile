@@ -1,4 +1,4 @@
-node('new machine'){
+node{
 
     
    stage ('checkout'){
@@ -10,7 +10,7 @@ node('new machine'){
     
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
     def mvn_cmd = "${maven_home}/bin/mvn"
-     sh "${mvn_cmd} mvn package"
+     bat "${mvn_cmd} mvn package"
     }
    
     stage('email notification')
@@ -28,7 +28,7 @@ node('new machine'){
              withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
          
    
-          sh " ${mvn_cmd}  mvn sonar:sonar"
+          bat " ${mvn_cmd}  mvn sonar:sonar"
            
     }
       }
