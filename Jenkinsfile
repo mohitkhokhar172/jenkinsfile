@@ -1,8 +1,5 @@
-node {
-agent {
-      new machine   'node'
-    }
-    
+node new machine  {
+
     
    stage ('checkout'){
         
