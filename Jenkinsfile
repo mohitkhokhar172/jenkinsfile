@@ -6,11 +6,12 @@ node{
     git 'https://github.com/nitinrocksss/JenkinsTest.git'
         
         }
+      
     stage('mvn package'){
     
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
-    def mvn_cmd = "${maven_home}\\bin"
-     bat "${mvn_cmd} \\mvn package"
+    def mvn_cmd = "${maven_home}\\bin\\mvn"
+     bat "${mvn_cmd} package"
     }
    
     stage('email notification')
