@@ -2,7 +2,7 @@ node {
     
     stage ('checkout'){
         
-    git 'https://github.com/javahometech/my-app.git'
+    git 'https://github.com/nitinrocksss/JenkinsTest.git'
         
         }
     stage('mvn package'){
