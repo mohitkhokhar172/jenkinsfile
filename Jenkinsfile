@@ -9,8 +9,8 @@ node{
     stage('mvn package'){
     
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
-    def mvn_cmd = "${maven_home}/bin/mvn"
-     bat "${mvn_cmd}  package"
+    def mvn_cmd = "${maven_home}/bin"
+     bat "${mvn_cmd}  mvn package"
     }
    
     stage('email notification')
