@@ -9,7 +9,7 @@ node {
     
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
     def mvn_cmd = "${maven_home}/bin/mvn"
-    "${mvn_cmd} mvn clean package"
+    "${mvn_cmd} mvn package"
     }
    
     stage('email notification')
@@ -20,11 +20,12 @@ node {
     
     stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'MAVEN_HOME', type: 'maven'
-        withSonarQubeEnv('Sonar') { 
-            "${mvnHome}/bin/mvn  sonar:sonar"
-            withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
+        withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
          
         }
+        withSonarQubeEnv('Sonar') { 
+            "${mvnHome}/bin/mvn  sonar:sonar"
+           
     }
       }
 }
