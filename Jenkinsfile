@@ -1,6 +1,10 @@
 node {
+agent {
+      new machine   'node'
+    }
     
-    stage ('checkout'){
+    
+   stage ('checkout'){
         
     git 'https://github.com/nitinrocksss/JenkinsTest.git'
         
