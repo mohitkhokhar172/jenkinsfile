@@ -1,4 +1,4 @@
-node ('new machine')  {
+node('new machine'){
 
     
    stage ('checkout'){
