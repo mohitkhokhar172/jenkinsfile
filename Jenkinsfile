@@ -21,8 +21,9 @@ node {
     stage('SonarQube Analysis') {
         def mvnHome =  tool name: 'MAVEN_HOME', type: 'maven'
         withSonarQubeEnv('Sonar') { 
+            "${mvnHome}/bin/mvn  sonar:sonar"
             withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
-          "${mvnHome}/bin/mvn  mvn sonar:sonar"
+         
         }
     }
       }
