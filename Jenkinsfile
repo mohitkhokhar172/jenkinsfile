@@ -26,7 +26,7 @@ node {
              withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
          
    
-            "${mvn_cmd}/bin/mvn  sonar:sonar"
+            "${mvn_cmd}  mvn sonar:sonar"
            
     }
       }
