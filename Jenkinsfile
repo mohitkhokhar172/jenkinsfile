@@ -9,7 +9,7 @@ node {
     
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
     def mvn_cmd = "${maven_home}/bin/mvn"
-    " sh ${mvn_cmd} mvn package"
+     sh "${mvn_cmd} mvn package"
     }
    
     stage('email notification')
@@ -27,7 +27,7 @@ node {
              withCredentials([usernameColonPassword(credentialsId: '87e3d577-1764-48e9-ba70-4afb756a9b29', variable: 'password')]) {
          
    
-           " sh ${mvn_cmd}  mvn sonar:sonar"
+          sh " ${mvn_cmd}  mvn sonar:sonar"
            
     }
       }
