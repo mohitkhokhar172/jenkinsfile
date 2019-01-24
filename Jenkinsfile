@@ -11,7 +11,7 @@ node{
     def mvn_version = 'mvn'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
   //sh "mvn clean package"
-    def maven_home= tool name: 'mvn', type: 'maven'
+    def maven_home= tool name: 'maven', type: 'maven'
    bat "mvn package"
     }
     }
