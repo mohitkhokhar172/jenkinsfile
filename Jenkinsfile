@@ -8,7 +8,7 @@ node{
         }
       
     stage('mvn package'){
-    def mvn_version = 'M3'
+    def mvn_version = 'mvn'
     withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
   //sh "mvn clean package"
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
