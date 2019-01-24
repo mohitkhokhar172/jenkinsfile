@@ -1,8 +1,6 @@
 node{
 
-    def mvn_version = 'M3'
-    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
-  //sh "mvn clean package"
+    
    stage ('checkout'){
         
     git 'https://github.com/nitinrocksss/JenkinsTest.git'
@@ -10,11 +8,13 @@ node{
         }
       
     stage('mvn package'){
-    
+    def mvn_version = 'M3'
+    withEnv( ["PATH+MAVEN=${tool mvn_version}/bin"] ) {
+  //sh "mvn clean package"
     def maven_home= tool name: 'MAVEN_HOME', type: 'maven'
    bat "mvn package"
     }
-   
+    }
     stage('email notification')
     {
         mail bcc: '', body: 'Hello', cc: '', from: 'nitinarorayv@gmail.com', replyTo: '', subject: 'job from jenkins', to: 'nitinarorayv@gmail.com'
